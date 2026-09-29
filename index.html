@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Business Assistant</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f4f7;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .box {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 25px;
+      border-radius: 18px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    textarea {
+      width: 100%;
+      height: 120px;
+      padding: 12px;
+      box-sizing: border-box;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 15px;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      background: #111;
+      color: white;
+      font-size: 16px;
+    }
+
+    .reply {
+      margin-top: 20px;
+      padding: 15px;
+      background: #f0f0f0;
+      border-radius: 10px;
+      min-height: 40px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+
+    <h1>🤖 AI Business Assistant</h1>
+
+    <p>Customer Message</p>
+
+    <textarea id="message"
+      placeholder="Example: Black shirt available hai?"></textarea>
+
+    <button onclick="generateReply()">
+      Generate AI Reply
+    </button>
+
+    <div class="reply" id="reply">
+      AI reply yahan दिखाई देगा...
+    </div>
+
+  </div>
+
+  <script>
+    function generateReply() {
+
+      let message = document.getElementById("message").value.toLowerCase();
+
+      let reply = "";
+
+      if (message.includes("shirt")) {
+        reply = "Hello! Haan, shirt available hai. Please apna required size bata dijiye.";
+      }
+
+      else if (message.includes("price") || message.includes("price kya")) {
+        reply = "Hello! Please bataiye aap kis product ki price jaana chahte hain.";
+      }
+
+      else if (message.includes("hello") || message.includes("hi")) {
+        reply = "Hello! 👋 Welcome. Aap humse kya jaana chahte hain?";
+      }
+
+      else {
+        reply = "Thank you for contacting us. Hum aapki enquiry check karke jaldi reply karenge.";
+      }
+
+      document.getElementById("reply").innerText = reply;
+    }
+  </script>
+
+</body>
+</html>
